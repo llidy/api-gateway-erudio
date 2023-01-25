@@ -1,5 +1,6 @@
 package br.com.erudio.model;
 
+import br.com.erudio.data.vo.v1.BookVO;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -13,16 +14,25 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "author")
+    @Column(nullable = false, length = 180)
     private String author;
-    @Column(name = "launch_date")
+    @Column(name = "launch_date", nullable = false)
+    @Temporal(TemporalType.DATE)
     private Date launchDate;
-    @Column(name = "price")
+    @Column(nullable = false)
     private BigDecimal price;
-    @Column(name = "title")
+    @Column(nullable = false, length = 250)
     private String title;
 
     public Book () {}
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getAuthor() {
         return author;
@@ -59,13 +69,22 @@ public class Book {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Book book = (Book) o;
-        return Objects.equals(id, book.id) && Objects.equals(author, book.author) && Objects.equals(launchDate, book.launchDate) && Objects.equals(price, book.price) && Objects.equals(title, book.title);
+        if (!(o instanceof Book book)) return false;
+
+        if (!id.equals(book.id)) return false;
+        if (!author.equals(book.author)) return false;
+        if (!launchDate.equals(book.launchDate)) return false;
+        if (!price.equals(book.price)) return false;
+        return title.equals(book.title);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, author, launchDate, price, title);
+        int result = id.hashCode();
+        result = 31 * result + author.hashCode();
+        result = 31 * result + launchDate.hashCode();
+        result = 31 * result + price.hashCode();
+        result = 31 * result + title.hashCode();
+        return result;
     }
 }
