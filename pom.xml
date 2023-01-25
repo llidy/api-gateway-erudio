@@ -17,6 +17,7 @@
 		<java.version>17</java.version>
 		<doze.version>6.4.0</doze.version>
 		<mysql.version>8.0.31</mysql.version>
+		<springdoc.version>2.0.2</springdoc.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -27,6 +28,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
 
 		<dependency>
@@ -42,6 +48,12 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.dataformat</groupId>
 			<artifactId>jackson-dataformat-yaml</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>${springdoc.version}</version>
 		</dependency>
 
 		<dependency>
