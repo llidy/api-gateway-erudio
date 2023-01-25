@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -15,7 +16,7 @@ public class Book {
     @Column(name = "author")
     private String author;
     @Column(name = "launch_date")
-    private LocalDateTime launchDate;
+    private Date launchDate;
     @Column(name = "price")
     private BigDecimal price;
     @Column(name = "title")
@@ -31,11 +32,11 @@ public class Book {
         this.author = author;
     }
 
-    public LocalDateTime getLaunchDate() {
+    public Date getLaunchDate() {
         return launchDate;
     }
 
-    public void setLaunchDate(LocalDateTime launchDate) {
+    public void setLaunchDate(Date launchDate) {
         this.launchDate = launchDate;
     }
 

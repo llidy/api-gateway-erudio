@@ -6,6 +6,7 @@ import com.github.dozermapper.core.Mapping;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.Objects;
 
 @JsonPropertyOrder({"id", "author", "launchDate", "price", "title"})
@@ -15,7 +16,7 @@ public class BookVO {
     @JsonProperty("id")
     private Long key;
     private String author;
-    private LocalDateTime launchDate;
+    private Date launchDate;
     private BigDecimal price;
     private String title;
 
@@ -37,11 +38,11 @@ public class BookVO {
         this.author = author;
     }
 
-    public LocalDateTime getLaunchDate() {
+    public Date getLaunchDate() {
         return launchDate;
     }
 
-    public void setLaunchDate(LocalDateTime launchDate) {
+    public void setLaunchDate(Date launchDate) {
         this.launchDate = launchDate;
     }
 
