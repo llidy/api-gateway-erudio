@@ -3,6 +3,7 @@ package br.com.erudio.data.vo.v1;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.github.dozermapper.core.Mapping;
+import org.springframework.hateoas.RepresentationModel;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -10,7 +11,7 @@ import java.util.Date;
 import java.util.Objects;
 
 @JsonPropertyOrder({"id", "author", "launchDate", "price", "title"})
-public class BookVO {
+public class BookVO extends RepresentationModel<BookVO> {
 
     @Mapping("id")
     @JsonProperty("id")
